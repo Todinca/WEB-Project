@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Gazdă: 127.0.0.1
--- Timp de generare: nov. 21, 2019 la 10:06 PM
--- Versiune server: 10.4.8-MariaDB
--- Versiune PHP: 7.3.11
+-- Gazdă: 127.0.0.1:3306
+-- Timp de generare: nov. 22, 2019 la 10:17 AM
+-- Versiune server: 5.7.26
+-- Versiune PHP: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,13 +28,15 @@ SET time_zone = "+00:00";
 -- Structură tabel pentru tabel `buze`
 --
 
-CREATE TABLE `buze` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `buze`;
+CREATE TABLE IF NOT EXISTS `buze` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nume` varchar(50) NOT NULL,
   `pret` varchar(50) NOT NULL,
   `cantitate` int(11) NOT NULL,
-  `img` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `img` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Eliminarea datelor din tabel `buze`
@@ -55,16 +57,35 @@ INSERT INTO `buze` (`id`, `nume`, `pret`, `cantitate`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structură tabel pentru tabel `comenzii`
+--
+
+DROP TABLE IF EXISTS `comenzii`;
+CREATE TABLE IF NOT EXISTS `comenzii` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `Nume` varchar(30) NOT NULL,
+  `Adresa` varchar(200) NOT NULL,
+  `Produse` varchar(200) NOT NULL,
+  `Pret` varchar(10) NOT NULL,
+  `Telefon` int(15) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structură tabel pentru tabel `fata`
 --
 
-CREATE TABLE `fata` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `fata`;
+CREATE TABLE IF NOT EXISTS `fata` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nume` varchar(50) NOT NULL,
   `pret` varchar(50) NOT NULL,
   `cantitate` varchar(50) NOT NULL,
-  `img` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `img` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Eliminarea datelor din tabel `fata`
@@ -88,13 +109,15 @@ INSERT INTO `fata` (`id`, `nume`, `pret`, `cantitate`, `img`) VALUES
 -- Structură tabel pentru tabel `ochi`
 --
 
-CREATE TABLE `ochi` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `ochi`;
+CREATE TABLE IF NOT EXISTS `ochi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nume` varchar(50) NOT NULL,
   `pret` varchar(50) NOT NULL,
   `cantitate` varchar(50) NOT NULL,
-  `img` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `img` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Eliminarea datelor din tabel `ochi`
@@ -118,79 +141,24 @@ INSERT INTO `ochi` (`id`, `nume`, `pret`, `cantitate`, `img`) VALUES
 -- Structură tabel pentru tabel `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `isAdmin` int(2) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nume` varchar(30) NOT NULL,
-  `prenume` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `prenume` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Eliminarea datelor din tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `isAdmin`, `email`, `nume`, `prenume`) VALUES
-(1, 'adi', '123', 1, 'adi@gmail.com', 'Dea', 'Adi'),
 (2, 'florina', 'florina', 1, 'florina@gmail.com', 'florina', 'todinca');
-
---
--- Indexuri pentru tabele eliminate
---
-
---
--- Indexuri pentru tabele `buze`
---
-ALTER TABLE `buze`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexuri pentru tabele `fata`
---
-ALTER TABLE `fata`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexuri pentru tabele `ochi`
---
-ALTER TABLE `ochi`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexuri pentru tabele `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pentru tabele eliminate
---
-
---
--- AUTO_INCREMENT pentru tabele `buze`
---
-ALTER TABLE `buze`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT pentru tabele `fata`
---
-ALTER TABLE `fata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT pentru tabele `ochi`
---
-ALTER TABLE `ochi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT pentru tabele `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
