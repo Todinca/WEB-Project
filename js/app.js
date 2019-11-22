@@ -28,14 +28,14 @@ function showSlides() {
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
+  if (slideIndex > slides.length) {slideIndex = 1}
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
@@ -56,9 +56,9 @@ function myFunction() {
 
  /*
     // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) 
+    window.onclick = function(event)
     {
-        if (!event.target.matches('.dropup-btn')) 
+        if (!event.target.matches('.dropup-btn'))
         {
           var dropups = document.getElementsByClassName("dropup-content");
           var i;
@@ -92,7 +92,7 @@ function showPopUp(x)
     document.getElementById("CosPopUp").style.display="none";
   }else{
     document.getElementById("CosPopUp").style.display="block";
-  }  
+  }
 }
 
 
@@ -114,24 +114,76 @@ function closePopUP(x){
 window.open("cos.php?produs="+idProdus, '_blank');
  }
 
- function deteteProdus(id,pret)
- {
-  var text=document.getElementsByClassName("itemCos");
-  var cnt=0;
-  for (i = 0; i < text.length; i++) {
-    if(text[i].style.display!="none"){
-      cnt++;
-    }  
-  }
-  if(cnt==0)
-  {
-    document.getElementById("emptyCos").style.display="block";
-    document.getElementById("emptyCos").innerHTML="Cosul este gol!";
-  }
+ function showOption(x){
+   if (x==1) {
+       document.getElementById("optionAdmin1").style.display="block";
+       document.getElementById("optionAdmin2").style.display="none";
+   }else{
+     document.getElementById("optionAdmin1").style.display="none";
+     document.getElementById("optionAdmin2").style.display="block";
+   }
+ }
 
-  document.getElementById("idItem"+id).style.display="none";
 
-  var valPret=document.getElementById("PretTotalComanda").textContent;
-  fpret=parseInt(valPret)-pret;
-  document.getElementById("PretTotalComanda").innerHTML=fpret;
+ function UploadClick() {
+   document.getElementById("PhotoUP").click(); // Click on the checkbox
+ }
+
+ function validation(x){
+       var elem=document.getElementById('PhotoUP').files[0];
+       var parents = document.getElementById('AreaUploadPhoto');
+       var rm = document.getElementById('ig');
+       var imag = document.createElement('img');
+
+       var atrr = document.createAttribute('class');
+       atrr.value="imgt";
+       imag.setAttributeNode(atrr);
+
+       var atrr = document.createAttribute('id');
+       atrr.value="ig";
+       imag.setAttributeNode(atrr);
+
+       var atrr = document.createAttribute('onload');
+       atrr.value="shower(x)";
+       imag.setAttributeNode(atrr);
+
+       imag.src=window.URL.createObjectURL(elem);
+       parents.removeChild(rm);
+       parents.appendChild(imag);
+       document.getElementById('SizePhotoUP').innerHTML=(elem.size/1024).toFixed(1)+'KB';
+
+     return false;
+   }
+   function shower(x){//x=playlist or subplaylist
+       var el=document.getElementsByClassName('imgt')[0];
+       document.getElementById('NamePhotoUP').innerHTML='.png';
+       document.getElementById('HeightPhotoUP').innerHTML=el.height+'px';
+       document.getElementById('WidthPhotoUP').innerHTML=el.width+'px';
+
+       document.getElementById('StatusPhotoUP').innerHTML="OK";
+       document.getElementById('StatusPhotoUP').style.color="green";
+
+       document.getElementsByClassName('imgt')[0].style.height=55+'px';
+       document.getElementsByClassName('imgt')[0].style.width=100+'px';
+       document.getElementsByClassName('imgt')[0].style.borderRadius="4px";
+       document.getElementById('TablePhotoUP').style.display="block";
+       validateForm();
+   }
+
+
+   function validateForm(){
+
+   	  var imgRoom=document.getElementById('StatusPhotoUP').innerHTML;
+      var text1=document.getElementById('RoNameProducts').value;
+      var text2=document.getElementById('RoPretProducts').value;
+      var text3=document.getElementById('RoCantitateProducts').value;
+
+   	   if(imgRoom=="OK" && text1.length > 2 && text2.length > 2  && text3.length >0  ){
+   		   document.getElementById('submitServici').style.display="block";
+          return true;
+   	   }else{
+
+   		   document.getElementById('submitServici').style.display="none";
+          return false;
+   	   }
  }

@@ -41,14 +41,20 @@ section{
     object-fit: cover;
 }
  .headline {
-     position: fixed;
-     top: 70%;
-     left:10%;
-     font-size: 200px;
-     transform: translate(-10%,-70%);
-     color:bisque
-    
+   position: fixed;
+   top: 75%;
+   left: 10%;
+   font-family: initial;
+   text-align: center;
+   font-size: 115px;
+   width: 1000px;
+   transform: translate(-10%,-70%);
+   color: bisque;
+
  }
+ .mySlides img {
+    height: 550px;
+}
  /*.hero::after{
      content:"";
      background:black;
@@ -65,7 +71,7 @@ section{
     position: relative;
     margin: auto;
   }
-  
+
   /* Caption text */
   .text {
     color: #f2f2f2;
@@ -100,12 +106,12 @@ section{
 }
 
 @-webkit-keyframes fade {
- from {opacity: .4} 
+ from {opacity: .4}
  to {opacity: 1}
 }
 
 @keyframes fade {
- from {opacity: .4} 
+ from {opacity: .4}
  to {opacity: 1}
 }
 /* On smaller screens, decrease text size */
@@ -141,9 +147,9 @@ section{
   #logare{
     top: 180px;
     width: 120px;
-    background-color:#ffb88a; 
+    background-color:#ffb88a;
   }
-  
+
   #inregistrare {
     top: 240px;
     width: 120px;
@@ -151,17 +157,20 @@ section{
   }
   .hero h4 {
       position: relative;
-      left: 75px;
-      top: 50px;
+      left: 30px;
+      top: 40px;
       font-size: 35px;
       color: #ffcc99;
       font-family: serif;
 
   }
-  
-  #ochi,#buze,#fata,#logOut{
+
+  #ochi,#buze,#fata,#logOut,#adminBTN{
     width:120px;
-    background-color:#FFCC99 
+    background-color:#FFCC99
+  }
+  #adminBTN{
+    top:420px;
   }
   #logOut{
     top:360px;
@@ -179,7 +188,7 @@ section{
   #contact {
     top: 300px;
     width:120px;
-    background-color:#FFCC99 
+    background-color:#FFCC99
   }
   .show {display:block;}
 
@@ -221,15 +230,15 @@ button {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
-    
- 
-  
+
+
+
 }
 
 #mySidenav button:hover {
   opacity:1;
   left:0;
-  
+
 }
 
 /* Extra styles for the cancel button */
@@ -280,7 +289,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
- 
+
 /* The Close Button (x) */
 .close {
   position: absolute;
@@ -486,14 +495,16 @@ div#navigareCos {
   background: #f6db89;
 }
 #navigareCos h5{
-    color: #ffffff;
-    position: relative;
-    font-size: 18px;
-    top: 10px;
-    height: 30px;
-    line-height: 30px;
-    left: 100px;
-
+  color: #ffffff;
+  position: relative;
+  font-size: 18px;
+  text-align: center;
+  top: 10px;
+  margin: 0px 20px;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  left: 53px;
 }
 #navigareCos a {
   color: white;
@@ -505,12 +516,15 @@ div#navigareCos {
 }
 #meniuCos #leftSide{
   width: 65%;
+  border: 1px solid #c3c3c3;
+  position: relative;
   background:#efecec;
   padding: 10px 20px;
   margin: 10px 20px;
 }
 #meniuCos #rightSide{
   width: calc(35% - 60px);
+  border: 1px solid #c3c3c3;
   background:#efecec;
   padding: 10px 20px;
   margin: 10px 20px;
@@ -520,12 +534,15 @@ div#navigareCos {
 .itemCos{
   display:block;
   background: white;
-  border: 1px solid #000;
-  min-height: 200px;
+  border: 1px solid #c3c3c3;
+  min-height: 160px;
   position: relative;
+  margin: 10px 0px;
+  border-radius: 5px;
 }
 #rightSide h3{
   font-size: 25px;
+  margin: 20px 10px;
 }
 #rightSide p{
   font-size: 20px;
@@ -546,25 +563,25 @@ div#navigareCos {
 }
 .itemCos img {
   width: 200px;
-  height: 200px;
+  height: 160px;
   margin: 10px;
 }
 
 .itemCos .numeItem {
   position: absolute;
-  top: 45px;
-  left: 200px;
-  font-size: 30px;
-  text-transform: capitalize;
-  color: #FFC107;
-  font-family: serif;
-  font-weight: bold;
+    top: 5px;
+    left: 235px;
+    font-size: 30px;
+    text-transform: capitalize;
+    color: #FFC107;
+    font-family: serif;
+    font-weight: bold;
 }
 
 .itemCos .pretItem {
   position: absolute;
-  bottom: 30px;
-  right: 200px;
+  bottom: 40px;
+  right: 40px;
   font-size: 40px;
   color: green;
 }
@@ -583,4 +600,45 @@ div#navigareCos {
 
 #CosPopUp{
   display: none;
+}
+#leftSide a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    text-decoration: blink;
+    font-weight: bold;
+    color: red;
+}
+div#lang {
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    color: #f3a74c;
+}
+#lang h5{
+  margin: 5px 10px;
+    color: #f3a74c;
+}
+#lang h5 a{
+    color: #f3a74c;
+    text-decoration: none;
+}
+h3#msgF {
+    position: absolute;
+    top: 25%;
+    left: calc(50% - 225px);
+    font-size: 30px;
+    color: white;
+    width: 450px;
+    background: #FFCC99;
+    padding: 20px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+div#optionAdmin2 {
+    width: 95%;
+    margin: 20px auto;
 }

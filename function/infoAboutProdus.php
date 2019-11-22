@@ -2,7 +2,6 @@
 
 
 include "config.php";
-session_start();
 
 mysqli_select_db($connect,'machiaje');
 $_SESSION['produse']=0;
@@ -31,10 +30,14 @@ if(mysqli_num_rows($result)>0)
 {
         while($row=mysqli_fetch_array($result))
         {
-            $_SESSION['produs'][$cnt]=$row['nume'];
-            $_SESSION['cantitate'][$cnt]=$row['cantitate'];
-            $_SESSION['produse']++;
-            $cnt++;
+          $_SESSION['produs'][$cnt]=$row['nume'];
+          $_SESSION['cantitate'][$cnt]=$row['cantitate'];
+
+          $_SESSION['pret'][$row['nume']]=$row['pret'];
+          $_SESSION['img'][$row['nume']]=$row['img'];
+
+          $_SESSION['produse']++;
+          $cnt++;
         }
 }
 
@@ -44,10 +47,14 @@ if(mysqli_num_rows($result)>0)
 {
         while($row=mysqli_fetch_array($result))
         {
-            $_SESSION['produs'][$cnt]=$row['nume'];
-            $_SESSION['cantitate'][$cnt]=$row['cantitate'];
-            $_SESSION['produse']++;
-            $cnt++;
+          $_SESSION['produs'][$cnt]=$row['nume'];
+          $_SESSION['cantitate'][$cnt]=$row['cantitate'];
+
+          $_SESSION['pret'][$row['nume']]=$row['pret'];
+          $_SESSION['img'][$row['nume']]=$row['img'];
+
+          $_SESSION['produse']++;
+          $cnt++;
         }
 }
 
