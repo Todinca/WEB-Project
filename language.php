@@ -25,7 +25,8 @@
       'back'=>'Back',
       'showOrders'=>'Vezi Comenzi',
       'addProducts'=>'Add Product',
-      'uploadPhoto'=>'Upload Image'
+      'uploadPhoto'=>'Upload Image',
+      'managerProducts'=>'Manager Product'
 			),
 
 		'ro' => array(
@@ -53,7 +54,8 @@
       'back'=>'Inapoi',
       'showOrders'=>'Vezi Comenzi',
       'addProducts'=>'Adauga Produs',
-      'uploadPhoto'=>'Adauga Imagine'
+      'uploadPhoto'=>'Adauga Imagine',
+      'managerProducts'=>'Gestioneaza Produse'
     )
 	);
 ?>

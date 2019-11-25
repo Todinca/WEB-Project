@@ -17,6 +17,7 @@ echo
     <h5><a href="home.php"><i class="ico-item fas fa-home"></i> '.$lang[$language]["home"].'</a></h5>
     <h5><a href="#" onclick="showOption(1)"><i class="far fa-eye"></i> '.$lang[$language]["showOrders"].'</a></h5>
     <h5><a href="#" onclick="showOption(2)"><i class="far fa-plus-square"></i> '.$lang[$language]["addProducts"].'</a></h5>
+    <h5><a href="#" onclick="showOption(3)"><i class="far fa-folder-open"></i> '.$lang[$language]["managerProducts"].'</a></h5>
 </div>
 
 <div id="optionAdmin1">';
@@ -63,6 +64,28 @@ echo '
         <input style="visibility:hidden;height: 0px;margin: 0px;padding: 0px;border: 0px;" name="imageModul" id="imageModul" type="text" value=""/>
         <input type="submit" id="submitServici" value="Send"/>
   </form>
+</div>
+<div id="optionAdmin3">
+    <form id="editForm" action="updateProduct.php" method="post">
+      <h2 id="textProduct1"></h2>
+      <input type="hidden" id="textProductID1" name="textProductID1"/>
+      <input type="hidden" id="typeProductID" name="typeProductID">
+      <input type="text" id="priceProductID" name="priceProductID" value="" placeholder="Introdu pretul nou sau vechiul pret"/>
+
+      <input type="text" id="cantityProductID" name="cantityProductID"  value="" placeholder="Introdu cantitate"/>
+      <input type="submit" name="submit"  value="Salveaza modificarile"/>
+    </form>
+
+    <form id="delectForm" action="deleteProduct.php" method="post">
+      <span onclick="closePopUpDeleteProduct()">X</span>
+      <h2 id="textProduct2">Ana</h2>
+      <input type="hidden" id="typeProductID1" name="typeProductID1">
+      <input type="hidden" id="textProductID" name="textProductID" placeholder="Introdu pretul nou sau vechiul pret"/>
+      <input type="submit" name="submit"  value="Confirma Stergerea"/>
+    </form>
+    ';
+   include "showProducts.php";
+echo '
 </div>
 <script src="js/app.js"></script>
 </body>';

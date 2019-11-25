@@ -118,9 +118,15 @@ window.open("cos.php?produs="+idProdus, '_blank');
    if (x==1) {
        document.getElementById("optionAdmin1").style.display="block";
        document.getElementById("optionAdmin2").style.display="none";
-   }else{
+       document.getElementById("optionAdmin3").style.display="none";
+   }else if (x==2) {
      document.getElementById("optionAdmin1").style.display="none";
      document.getElementById("optionAdmin2").style.display="block";
+     document.getElementById("optionAdmin3").style.display="none";
+   }else{
+     document.getElementById("optionAdmin1").style.display="none";
+     document.getElementById("optionAdmin2").style.display="none";
+     document.getElementById("optionAdmin3").style.display="block";
    }
  }
 
@@ -187,3 +193,24 @@ window.open("cos.php?produs="+idProdus, '_blank');
           return false;
    	   }
  }
+function closePopUpDeleteProduct(){
+  document.getElementById('delectForm').style.display="none";
+}
+
+function confirmDelete(name,type)
+{
+  document.getElementById('textProduct2').innerHTML=name;
+  document.getElementById('delectForm').style.display="block";
+  document.getElementById('textProductID').value=name;
+    document.getElementById('typeProductID1').value=type;
+
+}
+
+function confirmEdit(name,pret,cantitate,type){
+  document.getElementById('textProduct1').innerHTML=name;
+  document.getElementById('editForm').style.display="block";
+  document.getElementById('textProductID1').value=name;
+  document.getElementById('priceProductID').value=pret;
+  document.getElementById('typeProductID').value=type;
+  document.getElementById('cantityProductID').value=cantitate;
+}

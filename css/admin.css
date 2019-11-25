@@ -8,13 +8,81 @@ div#leftMenu {
     left: 0px;
     height: 100%;
 }
+#delectForm,#editForm{
+    display: none;
+    position: fixed;
+    top: 150px;
+    background: #f6db89;
+    width: 400px;
+    border-radius: 10px;
+    left: calc(50% - 200px);
+    border: 1px solid #000;
+}
+
+#delectForm input, #editForm input{
+  background: white;
+margin: 5px 20px;
+width: calc(100% - 40px);
+}
+#delectForm span{
+  position: absolute;
+    right: 10px;
+    outline: none;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+    background: white;
+    border-radius: 50px;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid red;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+#delectForm input[type="submit"], #editForm input[type="submit"] {
+    height: 30px;
+    border: 0px;
+    width: 160px !important;
+    background: #04cc4b;
+    margin: 40px 0px 10px;
+    position: relative;
+    left: 125px;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+#delectForm h2#textProduct2, #editForm h2#textProduct1{
+    margin: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 15px 0px;
+    top: 15px;
+    position: relative;
+}
+
+
 select{
-  width: 100%;
+    width: 100%;
     padding: 12px;
     margin: 3px 0 22px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
+}
+button#editProduct,button#deleteProduct {
+    width: 30px;
+    margin: 0px;
+    line-height: 30px;
+    text-align: center;
+    padding: 5px;
+    background: transparent;
+    color: #f3a74c;
+    font-weight: bold;
+    font-size: 17px;
+    outline: none;
+    cursor: pointer;
 }
 #btnUploadImgPlaylist{
     WIDTH: 100%;

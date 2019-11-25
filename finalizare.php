@@ -34,6 +34,7 @@ if ($result) {
   mysqli_close($connect);
 }
 
+
 echo "<h3 id='msgF'>$msg</h4>";
-//header("refresh:3;url=home.php");
+header("refresh:3;url=home.php");
 ?>
